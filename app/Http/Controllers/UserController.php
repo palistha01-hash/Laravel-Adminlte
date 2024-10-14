@@ -16,7 +16,8 @@ class UserController extends Controller
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
-                    $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">Edit</a>';
+                    $url = route('users.edit', ['user' => $row->id]);
+                    $btn = '<a href=\"{$url}\" class="edit btn btn-primary  openFormModal btn-sm">Edit</a>';
                     return $btn;
                 })
                 ->rawColumns(['action'])
