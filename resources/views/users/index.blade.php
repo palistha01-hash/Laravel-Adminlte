@@ -32,6 +32,7 @@
 
     <div>
         @include('modal')
+          @include('deleteModal')
     </div>
 @stop
 
