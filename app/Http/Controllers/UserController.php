@@ -6,7 +6,7 @@ use App\Models\User;
 use DataTables;
 use Illuminate\Http\Request;
 use App\Helpers\helper;
-
+use Rawilk\Printing\Facades\Printing;
 class UserController extends Controller
 {
     public function index(Request $request)
@@ -60,4 +60,13 @@ class UserController extends Controller
     
         return response()->json(['success' => 'User deleted successfully']);
     }
+
+    public function previewPrint()
+{
+    // Simulate print job and get content
+    $printContent = 'This is the content that will be printed.';
+
+    // Pass to the preview view
+    return view('print.preview', ['content' => $printContent]);
+}
 }

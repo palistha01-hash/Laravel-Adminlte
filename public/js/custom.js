@@ -1,3 +1,33 @@
+function initNepaliPicker(fld, disable, updateAD) {
+    var currentDate = NepaliFunctions.GetCurrentBsDate('YYYY-MM-DD');
+    let prop = {
+        container: '#backendModal',
+        ndpYear: true,
+        ndpMonth: true
+    };
+    if (typeof disable !== 'undefined' && disable) {
+        if (disable == 'beforeToday') {
+            prop.disableBefore = currentDate;
+        }
+        else if (disable == 'afterToday') {
+            prop.disableAfter = currentDate;
+        }
+    }
+    //update in date(AD)
+    if (typeof updateAD !== 'undefined' && updateAD) {
+        prop.onChange = function (fld) {
+            if (fld) {
+                var ad = fld.ad;
+                document.getElementById(updateAD).value = ad;
+            }
+        }
+    }
+    var modalInput = document.getElementById(fld);
+    if (modalInput) {
+        modalInput.nepaliDatePicker(prop);
+    }
+
+}
 $('body').on('click', '.openFormModal', function (e) {
     e.preventDefault();  
     var m = $(this),
@@ -22,7 +52,7 @@ $('body').on('click', '.openFormModal', function (e) {
                 $('.modal-title').text(response.title);            
 
                 $('#backendModal').modal('show');
-           
+                initNepaliPicker('DateOfBirth', 'afterToday', 'DateOfBirthAd');
                 }
 
             },      

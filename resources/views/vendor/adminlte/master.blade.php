@@ -36,7 +36,7 @@
     @else
         <link rel="stylesheet" href="{{ mix(config('adminlte.laravel_mix_css_path', 'css/app.css')) }}">
     @endif
-
+ <link rel="stylesheet" href="{{ asset('css/nepali.datepicker.v4.0.5.min.css') }}">
     {{-- Extra Configured Plugins Stylesheets --}}
     @include('adminlte::plugins', ['type' => 'css'])
 
@@ -93,7 +93,7 @@
     @else
         <script src="{{ mix(config('adminlte.laravel_mix_js_path', 'js/app.js')) }}"></script>
     @endif
-
+  <script src="{{ asset('js/nepali.datepicker.v4.0.5.min.js') }}"></script>
     {{-- Extra Configured Plugins Scripts --}}
     @include('adminlte::plugins', ['type' => 'js'])
 
